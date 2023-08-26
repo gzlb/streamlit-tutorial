@@ -6,6 +6,8 @@ from plotly.subplots import make_subplots
 from utils.fetch_top import fetch_top_currencies
 
 
+
+
 def get_historical(coin: str, start_date, end_date, period=None, interval='1d'):
     coin += "-USD"
     stock = yf.Ticker(coin)

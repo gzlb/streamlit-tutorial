@@ -25,4 +25,5 @@ install-dev:
 
 # Run the Streamlit app using Poetry
 run-app:
-	poetry run streamlit run navigation.dashboard.py
+	streamlit run main.py
+
