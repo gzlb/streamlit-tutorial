@@ -1,5 +1,8 @@
-[tool.poetry.dependencies]
-python = "3.8"
+[project]
+name = "crypto-dashboard"
+version = "0.0.1"
+
+[dependencies]
 streamlit = "*"
 requests = "*"
 yfinance = "*"
@@ -7,7 +10,16 @@ dask = "*"
 numpy = "*"
 plotly = "*"
 
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["dashboard/"]
+
+[tool.black]
+line-length = 99
+
+[tool.ruff]
+line-length = 99
+select = ["E", "F", "I"]
