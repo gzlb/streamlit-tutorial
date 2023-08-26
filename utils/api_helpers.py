@@ -1,9 +1,10 @@
 import requests
 
+
 def fetch_asset_data(api_url, start_date, end_date):
     params = {
-        'start_date': start_date,
-        'end_date': end_date,
+        "start_date": start_date,
+        "end_date": end_date,
         # Other API parameters if needed
     }
     response = requests.get(api_url, params=params)
