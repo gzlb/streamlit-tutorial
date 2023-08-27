@@ -1,24 +1,32 @@
 import streamlit as st
+from navigation.dashboard import get_market, get_historical
 
-from utils.fetch_top import fetch_top_currencies
 
-
+# Crypto/USD Calculator
 def calculator():
-    st.title("🪙 Cryptocurrency Converter Calculator")
+    # Crypto/USD Calculator
+    st.title("🪙 Cryptocurrency Plotting")
     col1, col2 = st.columns(2)
 
-    top_currencies = fetch_top_currencies(50)
-    with col1:
-        st.selectbox("From", top_currencies, key="coin1")
-    with col2:
-        st.selectbox("To", top_currencies, key="coin2")
+    # tickers2 = ('USD', 'BTC', 'ETH', 'SOL', 'ADA', 'DOT', 'MATIC', 'EGLD', 'DOGE', 'XRP', 'BNB')
+    # with col1: box01 = st.selectbox('From',tickers2, key = 'coin1')
+    # with col2: box02 = st.selectbox('To', tickers2, key = 'coin2')
 
-    columns = st.columns((2, 1, 2))
-    columns[0].number_input("Quantity")
+    # columns = st.columns((2, 1, 2))
+    # quantity = columns[0].number_input('Quantity')
 
-    # Your conversion calculations here
+    # if box01 != 'USD' and box02 != 'USD':
+    #     price1 = get_historical(box01, start_date= None, end_date = None, period = '1d')['Close'].iloc[-1]
+    #     price2 = get_historical(box02, start_date= None, end_date = None, period = '1d')['Close'].iloc[-1]
+    #     convert = float(quantity*price1/price2)
+    # elif box01 == 'USD' and box02 != 'USD':
+    #     price2 = get_historical(box02, start_date= None, end_date = None, period = '1d')['Close'].iloc[-1]
+    #     convert = float(quantity/price2)
+    # elif box01 != 'USD' and box02 == 'USD':
+    #     price1 = get_historical(box01, start_date= None, end_date = None, period = '1d')['Close'].iloc[-1]
+    #     convert = float(quantity*price1)
+    # else:
+    #     convert = quantity
 
-    columns = st.columns((1, 1))
-    columns[0].metric("", convert)
-
-    # Remaining code
+    # columns = st.columns((1, 1))
+    # quantity = columns[0].metric('',convert)

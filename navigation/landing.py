@@ -8,23 +8,18 @@ def pageI():
     st.markdown(
         """
 
-    ## Crypto Dashboard - Crypto Calculator 💥
-    ### [GitHub Link](https://github.com/Jeanfabra/cryptodashboard-streamlit)
+    ## Postvalue Dashboard 
 
-    ### To get started go to navigation in the sidebar.
+
+    ### To get started go to navigation in the sidebar. 
     ----
 
     ## Navigation
-    ### 🧷 1. Candlestick and volume chart: It has historical data of cryptocurrencies. High, Low, Close prices and volume can be viewed from a range of dates. The user can at will set this range as well as a resolution.
-    ### 🧷 2. Cryptocurrency converter calculator: Here the user can choose if he wants to know the price in dollars of a chosen amount of cryptocurrencies, also the cryptocurrencies equivalent to an amount of dollars entered and also make an exchange between cryptocurrencies. Prices are updated in real time.
+    ### 1. Ranking: here, the user can obtain a ranking based on the best performing currencies calculated by market cap, a user specified input is provided 
+    ### 2. Plotting: here, the user can obtain similarly the data in ranking, but plotted throughout time 
 
+    ----
+    ## Any remarks, send them to: (collect them eventually in Notion? )
+    ### 📨: [burakg404@gmail.com](mail:burakg404@gmail.com)
     # """
-    )
-
-    st.info(
-        "INFO: This an open source project and you are very welcome to **contribute** your awesome "
-        "comments, questions, resources and apps as "
-        "[issues](https://github.com/Jeanfabra/cryptodashboard-streamlit/issues) or "
-        "[pull requests](https://github.com/Jeanfabra/cryptodashboard-streamlit/pulls) "
-        "to the [source code](https://github.com/Jeanfabra/cryptodashboard-streamlit)."
     )
