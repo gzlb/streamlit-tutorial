@@ -1,20 +1,23 @@
 import plotly.graph_objects as go
 import streamlit as st
-import yfinance as yf
+import pandas as pd
+from coinmarketcap import Market
 from plotly.subplots import make_subplots
 
 from utils.fetch_top import fetch_top_currencies
 
 
-def get_historical(coin: str, start_date, end_date, period=None, interval="1d"):
-    coin += "-USD"
-    stock = yf.Ticker(coin)
+def get_historical(coin_id: int, start_date, end_date, interval="1d"):
+    cmc = Market()
+    coin_data = cmc.ticker(coin_id)
+    quotes = coin_data["data"]["quotes"]
 
-    historical = stock.history(period=period, start=start_date, end=end_date, interval=interval)
-    if "Datetime" in historical.columns:
-        historical.rename({"Datetime": "Date"}, axis=1, inplace=True)
+    # Convert quotes to DataFrame
+    coin_df = pd.DataFrame(quotes).T
+    coin_df["last_updated"] = coin_df["last_updated"].apply(datetime.utcfromtimestamp)
+    coin_df.set_index("last_updated", inplace=True)
 
-    return historical
+    return coin_df
 
 
 def pageII():
@@ -92,22 +95,18 @@ def pageII():
         st.dataframe(coin_df)
 
 
-def get_historical_dask(coin: str, start_date, end_date, interval="1d"):
-    coin += "-USD"
-    stock = yf.Ticker(coin)
+def get_historical_dask(coin_id: int, start_date, end_date, interval="1d"):
+    cmc = Market()
+    coin_data = cmc.ticker(coin_id)
+    quotes = coin_data["data"]["quotes"]
 
-    # Fetch data in chunks using Dask
-    start_date = start_date.strftime("%Y-%m-%d")
-    end_date = end_date.strftime("%Y-%m-%d")
-    historical_dask = dd.from_pandas(pd.DataFrame(), npartitions=10)
+    # Convert quotes to DataFrame
+    coin_df = pd.DataFrame(quotes).T
+    coin_df["last_updated"] = coin_df["last_updated"].apply(datetime.utcfromtimestamp)
+    coin_df.set_index("last_updated", inplace=True)
 
-    for chunk_start in pd.date_range(start=start_date, end=end_date, freq="1M"):
-        chunk_end = chunk_start + pd.DateOffset(months=1)
-        chunk_end = min(chunk_end, end_date)
-        chunk_data = stock.history(start=chunk_start, end=chunk_end, interval=interval).compute()
-        historical_dask = dd.concat(
-            [historical_dask, dd.from_pandas(chunk_data, npartitions=1)], axis=0
-        )
+    # Convert to Dask DataFrame
+    historical_dask = dd.from_pandas(coin_df, npartitions=10)
 
     return historical_dask
 
