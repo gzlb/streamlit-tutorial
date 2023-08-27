@@ -3,7 +3,7 @@ import requests
 
 def fetch_top_currencies(n):
     # Replace with your CoinMarketCap API endpoint and key
-    API_KEY = "YOUR_COINMARKETCAP_API_KEY"
+    API_KEY = "00d5b114-9687-4884-b922-ba32d3f753fe"
     API_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
 
     params = {

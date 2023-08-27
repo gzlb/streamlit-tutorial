@@ -1,14 +1,12 @@
 import requests
+from datetime import datetime
+import coinmarketcapapi
 
 
 def fetch_asset_data(api_url, start_date, end_date):
-    params = {
-        "start_date": start_date,
-        "end_date": end_date,
-        # Other API parameters if needed
-    }
-    response = requests.get(api_url, params=params)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        raise Exception(f"API request failed with status code: {response.status_code}")
+    API_KEY = "00d5b114-9687-4884-b922-ba32d3f753fe"
+
+    cmc_client = coinmarketcapapi.CoinMarketCapAPI(API_KEY)
+    response = cmc_client.tools_priceconversion(amount=1, symbol="ETH", convert="USD")
+    response.data
+    print(response.data)
