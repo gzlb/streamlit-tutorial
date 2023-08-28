@@ -1,7 +1,6 @@
 [tool.poetry]
 name = "crypto-dashboard"
 version = "0.0.1"
-description = "A Streamlit dashboard for cryptocurrency data"
 
 
 dependencies = [
