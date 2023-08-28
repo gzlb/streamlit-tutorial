@@ -1,5 +1,5 @@
 import streamlit as st
-from navigation import landing, dashboard, calculator
+from navigation import landing, dashboard, plot
 
 # Streamlit pages
 st.set_page_config(layout="wide")
@@ -11,7 +11,7 @@ st.sidebar.image(
 pages = {
     "🏠 Main Page": landing.pageI,
     "💰 Ranking": dashboard.pageII,
-    "📈 Plotting": calculator.calculator,
+    "📈 Plotting": plot.pageIII,
 }
 
 selected_page = st.sidebar.radio("Navigation", pages.keys())

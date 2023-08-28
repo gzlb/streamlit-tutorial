@@ -1,1 +1,1 @@
-from navigation import calculator, landing, dashboard
+from navigation import landing, dashboard, plot
