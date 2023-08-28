@@ -14,12 +14,7 @@ dependencies = [
 
 # packages = [{include = "package_name"}]  <-- Remove or comment out this line
 
-[build-system]
-build-backend = "hatchling.build"
-requires = ["hatchling"]
 
-[tool.hatch.build.targets.wheel]
-packages = ["dashboard/"]
 
 [tool.black]
 line-length = 99
