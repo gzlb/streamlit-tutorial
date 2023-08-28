@@ -44,7 +44,6 @@ def pageIII():
     df_filter = df_filter.reset_index(drop=True)
 
     # Display filtered data
-    st.dataframe(df_filter)
 
     # Plot top stocks
     top_stocks_data = (
@@ -54,3 +53,5 @@ def pageIII():
     )  # Reset index
     fig = plot_top_stocks(top_stocks_data, interval=group_by_interval)
     st.plotly_chart(fig)
+
+    st.dataframe(df_filter)
