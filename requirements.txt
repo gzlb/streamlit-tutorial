@@ -1,0 +1,7 @@
+streamlit==1.25.0
+requests>=2.18,<3.0
+python-coinmarketcap==0.5
+dask==2023.3.2
+numpy==1.25.2
+plotly~=5.3.1
+matplotlib==3.7.2
