@@ -1,1 +1,1 @@
-from navigation import landing, dashboard, plot
+from navigation import landing, dashboard, plot, feedback 
