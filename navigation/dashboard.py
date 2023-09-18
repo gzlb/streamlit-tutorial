@@ -1,11 +1,12 @@
-import streamlit as st
-import pandas as pd
 import dask.dataframe as dd
+import pandas as pd
+import streamlit as st
+
 from utils.data_processing import get_top_n_stocks
 
 
 def pageII():
-    st.title("Crypto Ranking", anchor="title")
+    st.title("S&P 500 Ranking", anchor="title")
 
     num_steps = st.sidebar.slider(
         "Pick the number of currencies you want to rank based on marketcap",
@@ -37,7 +38,9 @@ def pageII():
         usecols=["date", "close", "volume", "Name"],
         parse_dates=["date"],
     )
-    df_filter = get_top_n_stocks(data=df_initial, group_by=group_by_interval, n=num_steps)
+    df_filter = get_top_n_stocks(
+        data=df_initial, group_by=group_by_interval, n=num_steps
+    )
 
     # st.dataframe(df_filter)
 

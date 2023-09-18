@@ -7,7 +7,10 @@ def plot_top_stocks(top_stocks_data, interval):
     for stock_name, stock_data in top_stocks_data.groupby("Name"):
         fig.add_trace(
             go.Scatter(
-                x=stock_data[interval], y=stock_data["market_cap"], mode="lines", name=stock_name
+                x=stock_data[interval],
+                y=stock_data["market_cap"],
+                mode="lines",
+                name=stock_name,
             )
         )
 

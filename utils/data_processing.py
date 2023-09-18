@@ -11,7 +11,9 @@ def get_top_n_stocks(data, group_by, n):
     date_components = data["date"].dt.isocalendar()
 
     # Map ISO week to month and quarter
-    date_components["month"] = date_components["year"] * 12 + date_components["week"] // 4
+    date_components["month"] = (
+        date_components["year"] * 12 + date_components["week"] // 4
+    )
     date_components["quarter"] = (
         date_components["year"] * 4 + date_components["week"] - 1
     ) // 13 + 1
@@ -21,7 +23,9 @@ def get_top_n_stocks(data, group_by, n):
 
     # Group by specified interval and Name
     grouped = (
-        data_with_date_components.groupby([group_by, "Name"])["market_cap"].sum().reset_index()
+        data_with_date_components.groupby([group_by, "Name"])["market_cap"]
+        .sum()
+        .reset_index()
     )
 
     # Function to find top n stocks
@@ -29,6 +33,8 @@ def get_top_n_stocks(data, group_by, n):
         return group.nlargest(n, "market_cap")
 
     # Find top n stocks per specified interval
-    top_n_stocks_per_interval = grouped.groupby(group_by).apply(top_n_stocks, n=n).compute()
+    top_n_stocks_per_interval = (
+        grouped.groupby(group_by).apply(top_n_stocks, n=n).compute()
+    )
 
     return top_n_stocks_per_interval

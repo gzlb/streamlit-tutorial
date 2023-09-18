@@ -20,7 +20,5 @@ def pageI():
     ### 3. Feedback: here, users can return feedback with regards to any issues or preferences
 
     ----
-    ## Any remarks, send them to: (collect them eventually in Notion? )
-    ### 📨: [burakg404@gmail.com](mail:burakg404@gmail.com)
-    # """
+    """
     )

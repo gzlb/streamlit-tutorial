@@ -1,8 +1,9 @@
-import streamlit as st
-import pandas as pd
 import dask.dataframe as dd
-from utils.data_processing import get_top_n_stocks
+import pandas as pd
+import streamlit as st
+
 from utils.data_plotting import plot_top_stocks
+from utils.data_processing import get_top_n_stocks
 
 
 def pageIII():
@@ -38,7 +39,9 @@ def pageIII():
         usecols=["date", "close", "volume", "Name"],
         parse_dates=["date"],
     )
-    df_filter = get_top_n_stocks(data=df_initial, group_by=group_by_interval, n=num_steps)
+    df_filter = get_top_n_stocks(
+        data=df_initial, group_by=group_by_interval, n=num_steps
+    )
 
     # Reset the index before grouping
     df_filter = df_filter.reset_index(drop=True)
