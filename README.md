@@ -3,7 +3,7 @@
 
 ## Overview
 
-This is a simple S&P 500 Dashboard, created as a demonstration of Streamlit. It provides insights into the stock market by allowing users to explore and interact with S&P 500 data.
+This is a simple S&P 500 Dashboard, created as a demonstration of Streamlit. It provides insights into the stock market by allowing users to explore and interact with S&P 500 data. The goal was to get comfortable with Streamlit functionality to eventually use this in a private project. 
 
 ### Getting Started
 
