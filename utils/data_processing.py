@@ -47,5 +47,6 @@ def get_top_n_stocks(data, group_by, n):
     top_n_stocks_per_interval = (
         grouped.groupby(group_by).apply(top_n_stocks, n=n).compute()
     )
+    top_n_stocks_per_interval.index += 1
 
     return top_n_stocks_per_interval
