@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 
 
-@st.cache_data
 def get_top_n_stocks(data, group_by, n):
     """
     Calculate the top n stocks based on market capitalization.
