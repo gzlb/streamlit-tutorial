@@ -53,4 +53,3 @@ It is recommended to use a virtual environment to isolate your project's depende
 
 
 Note: initially I was hoping to use a pytoml file but this is not supported on the Streamlit cloud. 
->>>>>>> init-launch
