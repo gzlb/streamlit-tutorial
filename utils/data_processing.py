@@ -1,10 +1,22 @@
 # helpers/data_processing.py
 import dask.dataframe as dd
 import pandas as pd
+import streamlit as st
 
 
+@st.cache_data
 def get_top_n_stocks(data, group_by, n):
-    # Calculate Market Cap
+    """
+    Calculate the top n stocks based on market capitalization.
+
+    Args:
+        data (dd.DataFrame): Input data.
+        group_by (str): Grouping interval (e.g., 'week', 'month', 'quarter', 'year').
+        n (int): Number of top stocks to retrieve.
+
+    Returns:
+        pd.DataFrame: DataFrame containing top n stocks per specified interval.
+    """
     data["market_cap"] = data["volume"] * data["close"]
 
     # Extract date components using Pandas

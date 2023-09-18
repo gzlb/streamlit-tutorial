@@ -1,6 +1,8 @@
 import plotly.graph_objects as go
+import streamlit as st
 
 
+@st.cache_data
 def plot_top_stocks(top_stocks_data, interval):
     fig = go.Figure()
 

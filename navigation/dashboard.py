@@ -6,6 +6,10 @@ from utils.data_processing import get_top_n_stocks
 
 
 def pageII():
+    """
+    Streamlit app page for ranking S&P 500 stocks by market cap.
+    """
+
     st.title("S&P 500 Ranking", anchor="title")
 
     num_steps = st.sidebar.slider(
@@ -20,18 +24,12 @@ def pageII():
 
     col1.header(f" Top {num_steps} based on market cap in USD")
 
-    check = st.radio(
-        "Filter", ["weekly", "monthly", "quarterly", "annual"], horizontal=True, index=0
+    check = st.selectbox(
+        "Filter by Interval",
+        ["Week", "Month", "Quarter", "Year"],
+        index=0,
     )
-
-    if check == "weekly":
-        group_by_interval = "week"
-    elif check == "monthly":
-        group_by_interval = "month"
-    elif check == "quarterly":
-        group_by_interval = "quarter"
-    else:
-        group_by_interval = "year"
+    group_by_interval = check.lower()
 
     df_initial = dd.read_csv(
         "archive/all_stocks_5yr.csv",

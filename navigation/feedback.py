@@ -33,11 +33,16 @@ def send_feedback_email(name, email, feedback_type, feedback_message):
 
 
 def pageIV():
+    """
+    Streamlit app page for collecting and sending user feedback.
+    """
     st.subheader("Feedback Form")
+
     name = st.text_input("Your Name")
     email = st.text_input("Your Email (optional)")
     feedback_type = st.selectbox(
-        "Feedback Type", ["Bug Report", "Feature Request", "General Feedback"]
+        "Feedback Type",
+        ["Bug Report", "Feature Request", "General Feedback"],
     )
     feedback_message = st.text_area("Feedback Message")
     submit_button = st.button("Submit Feedback")
