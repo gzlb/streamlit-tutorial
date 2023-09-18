@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# postvalue-dashboard
-=======
 # S&P 500 Dashboard
 
 
